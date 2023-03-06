@@ -61,9 +61,10 @@ const intToRoman = function(num) {
             num-=4;
             continue;
         }
-        else if(num<4&&num!==0){
+        else if(num<4){
             result+='I';
             num-=1
+            continue;
         }
     }
     return result
