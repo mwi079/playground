@@ -21,24 +21,25 @@
 // }
 
 const longestPalindrome = function(s) {
-    let res = "";
+    let result = "";
     let max = 0;
 
     for(let i = 0; i < s.length; i++){
         for(let j = 0; j <= 1; j++){
-            let l = i;
-            let r = i + j;
+            let left = i;
+            let right = i + j;
 
-            while(l >= 0 && r < s.length && s[l] === s[r]){ //! only continue while left letter === right letter 
-                let len = r - l + 1;
-                if(len > max){
-                    res = s.substring(l, r + 1);
-                    max = len;
+            while(left >= 0 && right < s.length && s[left] === s[right]){ //! only continue while left letter === right letter 
+                let length = right- left + 1;
+                if(length > max){
+                    result = s.substring(left, right + 1);
+                    max = length;
                 }
-                l--;
-                r++;
+                left--;
+                right++; //! expant until failure
             }
         }
     }
-    return res;
+    return result;
 };
+console.log(longestPalindrome('gvesfcvergeragacfafergaesottoawfaewfew'))
